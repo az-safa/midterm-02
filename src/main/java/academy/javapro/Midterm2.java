@@ -8,6 +8,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.function.BiFunction;
 
+/**
+ * Demonstrates generic methods for merging collections using BiFunction.
+ * Covers handling edge cases, type flexibility, and safe collection manipulation.
+ */
 public class Midterm2 {
 
  /**
@@ -21,7 +25,13 @@ public class Midterm2 {
          this.name = name;
          this.age = age;
      }
-
+  
+      /**
+       * Provides a human-readable string representation of the Person object.
+       *
+       * @return A string in the format Person{name='name', age=age}
+       */
+  
      // TODO: Override the toString() method to provide a meaningful string representation of the Person object.
      @Override
      public String toString() {
@@ -85,11 +95,25 @@ public class Midterm2 {
      // TODO: Return the list containing the merged results.
      return result;
  }
-
+ 
+ /**
+  * Zips two collections of different types into a new collection using a BiFunction.
+  * This version does not require the collections to be the same size; it stops at the shorter collection's size.
+  *
+  * @param <T>              The type of elements in the first collection
+  * @param <S>              The type of elements in the second collection
+  * @param <R>              The type of elements in the resulting collection
+  * @param firstCollection  The first collection containing elements of type T
+  * @param secondCollection The second collection containing elements of type S
+  * @param mergeFunction    The function that defines how to merge elements from both collections
+  * @return A new list containing the merged elements, up to the shorter collection's length
+  */
+ 
  /**
   * Alternative implementation that doesn't require equal-sized collections.
   * Instead, it pairs elements until one collection is exhausted.
   */
+ 
  public static <T, S, R> List<R> zipCollections(
          Collection<T> firstCollection,
          Collection<S> secondCollection,
@@ -122,6 +146,12 @@ public class Midterm2 {
      // TODO: Return the list containing the merged results.
      return result;
  }
+
+ /**
+  * Demonstrates various examples of merging and zipping collections using generic methods.
+  *
+  * @param args Command-line arguments (not used)
+  */
  public static void main(String[] args) {
      // Example 1: Merging numbers and strings
      List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
